@@ -1,10 +1,20 @@
 <script>
+    import Footer from "$lib/components/Footer.svelte";
+    import NavigationBar from "$lib/components/NavBar.svelte";
     import "../tailwind.css";
-    import { LightSwitch } from '@skeletonlabs/skeleton';
+    import { initializeStores, Modal } from "@skeletonlabs/skeleton";
+
+    initializeStores();
 
     let { children } = $props();
+    const name = $state("bob");
 </script>
 
-<LightSwitch />
+<Modal />
+<NavigationBar />
 
-{@render children()}
+<div class="overflow-x-auto">
+    {@render children()}
+</div>
+
+<Footer />

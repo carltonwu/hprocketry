@@ -9,15 +9,20 @@ export async function getGeocodio(query: string) {
             country: 'USA',
             format: 'simple',
         });
+
         const response = await fetch(`https://api.geocod.io/v1.7/geocode?${params.toString()}`, {
             method: "GET",
         });
-        
+
+
         const data = await response.json();
+
+        console.log(data);
+
 
         return { success: true, query: query, lat: data.lat, lon: data.lng };
     } catch (error) {
         console.error("Error fetching data:", error);
-        return { success: false, query: query}
+        return { success: false, query: query }
     }
 }
