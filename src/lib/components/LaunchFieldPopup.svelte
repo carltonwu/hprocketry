@@ -7,8 +7,8 @@
 <div class="bg-surface-100 dark:bg-surface-700 p-3 min-w-48">
     <a
         class="text-xs md:text-base anchor"
-        href="/launchsites/{launch_site.club}/{launch_site.launch_site}"
-        >{launch_site.launch_site}
+        href="/launchsites/{launch_site.club}/{launch_site.name}"
+        >{launch_site.name}
     </a>
     <div class="text-xs dark:text-surface-300 text-surface-500 underline">
         <a href="/launchsites/{launch_site.club}">
@@ -21,10 +21,7 @@
                 {Intl.NumberFormat().format(launch_site.waiver)} ft
             {/if}
         </div>
-        <a
-            class="text-xs md:text-base anchor"
-            href={launch_site.website}
-            target="”_blank”"
+        <a class="text-xs anchor" href={launch_site.website} target="”_blank”"
             >Website
         </a>
     </div>

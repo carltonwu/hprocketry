@@ -22,12 +22,12 @@
             <div>
                 <a
                     class="text-xs md:text-base anchor"
-                    href="/launchsites/{props.row.club}/{props.row.launch_site}"
-                    >{truncate(props.row.launch_site, 30)}
+                    href="/launchsites/{props.row.club}/{props.row.name}"
+                    >{truncate(props.row.name, 30)}
                 </a>
             </div>
             <div
-                class="flex flex-nowrap space-x-2 text-xs text-surface-500 dark:text-surface-300 overflow-hidden whitespace-nowrap items-center underline"
+                class="flex flex-nowrap space-x-2 text-xs text-surface-500 dark:text-surface-300 items-center underline"
             >
                 <a href="/launchsites/{props.row.club}">
                     {truncate(props.row.club, 30)}
@@ -41,8 +41,8 @@
             </div>
         </div>
     </td>
-    <td>
-        <p class="text-xs md:text-base text-end">
+    <td class="text-xs md:text-base text-end flex items-center h-full">
+        <p>
             {Intl.NumberFormat().format(props.row.waiver)} ft
         </p>
     </td>

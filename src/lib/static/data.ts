@@ -1,74 +1,69 @@
 export default [
-    { id: 1, launch_site: "Higgs Field", club: "MDRA", association: "NAR|TRA", waiver: 14000, lat: 33.2049, lon: -93.22221 },
-    { id: 2, launch_site: "Central Sod Farm", club: "MDRA", association: "NAR", waiver: 4000, lat: 33.2049, lon: -93.22221 },
-    { id: 3, launch_site: "Potters Farm", club: "URRG", association: "NAR|TRA", waiver: 18000, lat: 42.695600, lon: -77.171070 },
-    { id: 4, launch_site: "Central Virginia", club: "Tripoli Central Virginia", association: "TRA", waiver: 8000, lat: 33.2049, lon: -93.22221 },
-    { id: 5, launch_site: "Metra", club: "Metra", association: "NAR|TRA", waiver: 3500, lat: 41.3371, lon: -74.4849 },
     {
-        "launch_site": "Higgs Farm",
+        "name": "Higgs Farm",
         "club": "Maryland Delaware Rocketry Association",
         "association": "NAR|TRA",
         "waiver": 14000,
-        "lat": "",
-        "lon": "",
+        "lat": 39.07966502,
+        "lon": -75.8762039,
         "website": "https://mdrocketry.org/higgs-farm/"
     },
     {
-        "launch_site": "Central Sod Farm",
+        "name": "Central Sod Farm",
         "club": "Maryland Delaware Rocketry Association",
         "association": "NAR|TRA",
         "waiver": 4000,
-        "lat": "",
-        "lon": "",
+        "lat": 39.00041558,
+        "lon": -76.10568133,
         "website": "https://mdrocketry.org/central-sod-farm/"
     },
     {
-        "launch_site": "Metropolitan Rocketry Association",
+        "name": "Metropolitan Rocketry Association",
         "club": "Metropolitan Rocketry Association",
         "association": "NAR|TRA",
         "waiver": 4500,
-        "lat": "",
-        "lon": "",
+        "lat": 41.3371,
+        "lon": -74.4849,
         "website": "https://metrarocketclub.org/launch-info/directions/"
     },
     {
-        "launch_site": "Battlepark",
+        "name": "Battlepark",
         "club": "Tripoli Central Virginia",
         "association": "TRA",
         "waiver": 7000,
-        "lat": "",
-        "lon": "",
+        "lat": 38.3977618,
+        "lon": -78.06618786,
         "website": "https://battlepark.org/?page_id=61"
     },
     {
-        "launch_site": "Argonia",
+        "name": "Argonia",
         "club": "KLOUDBusters",
         "association": "TRA",
         "waiver": 50000,
-        "lat": "",
-        "lon": "",
+        "lat": 37.16827983,
+        "lon": -97.73997142,
         "website": "https://kloudbusters.org/content.aspx?page_id=22&club_id=325948&module_id=557608"
     },
     {
-        "launch_site": "Potters Farm",
+        "name": "Potters Farm",
         "club": "Upstate Rocketry Research Group",
         "association": "NAR|TRA",
         "waiver": 18000,
-        "lat": "",
-        "lon": "",
+        "lat": 42.6956,
+        "lon": -77.17107,
         "website": "https://urrg.us/content.aspx?page_id=22&club_id=453409&module_id=550827"
     },
     {
-        "launch_site": "Lousiana Rocketry",
+        "name": "Lousiana Rocketry",
         "club": "Lousiana Rocketry",
         "association": "TRA",
         "waiver": 14000,
-        "lat": "",
-        "lon": "",
+        "lat": 32.2093,
+        "lon": -91.8571,
         "website": "http://www.tra-la.org/"
     },
     {
-        "launch_site": "Horning 1",
+        "name": "Horning 1",
         "club": "Jackson Michigan Rocket Club",
         "association": "TRA",
         "waiver": 3000,
@@ -77,7 +72,7 @@ export default [
         "website": "http://jacksonmodelrocketryclub.blogspot.com/p/launch-fields.html"
     },
     {
-        "launch_site": "Horning 2",
+        "name": "Horning 2",
         "club": "Jackson Michigan Rocket Club",
         "association": "TRA",
         "waiver": 3000,
@@ -86,7 +81,7 @@ export default [
         "website": "http://jacksonmodelrocketryclub.blogspot.com/p/launch-fields.html"
     },
     {
-        "launch_site": "Michigan International Speedway",
+        "name": "Michigan International Speedway",
         "club": "Jackson Michigan Rocket Club",
         "association": "TRA",
         "waiver": 3000,
@@ -95,7 +90,7 @@ export default [
         "website": "http://jacksonmodelrocketryclub.blogspot.com/p/launch-fields.html"
     },
     {
-        "launch_site": "Eagle Eye",
+        "name": "Eagle Eye",
         "club": "Tripoli Pheonix",
         "association": "TRA",
         "waiver": 48000,
@@ -104,7 +99,7 @@ export default [
         "website": "https://traphx.clubexpress.com/content.aspx?page_id=22&club_id=114239&module_id=642011"
     },
     {
-        "launch_site": "Quad Cities Rocket Club",
+        "name": "Quad Cities Rocket Club",
         "club": "Quad Cities Rocket Club",
         "association": "NAR|TRA",
         "waiver": 17000,
@@ -113,16 +108,16 @@ export default [
         "website": "https://qcrc.clubexpress.com/content.aspx?page_id=22&club_id=185950&module_id=535387"
     },
     {
-        "launch_site": "Tripoli Mid Ohio",
-        "club": "",
-        "association": "",
+        "name": "Tripoli Mid Ohio",
+        "club": "Tripoli Mid Ohio",
+        "association": "TRA",
         "waiver": "",
         "lat": 39.86203229,
         "lon": -83.65533391,
-        "website": ""
+        "website": "http://www.tripolimidohio31.com/"
     },
     {
-        "launch_site": "Frank Hunt Field",
+        "name": "Frank Hunt Field",
         "club": "Utah Rocket Club",
         "association": "NAR|TRA",
         "waiver": 10000,
@@ -131,7 +126,7 @@ export default [
         "website": "https://www.uroc.org/content.aspx?page_id=22&club_id=591702&module_id=302680"
     },
     {
-        "launch_site": "Black Rock",
+        "name": "Black Rock",
         "club": "Utah Rocket Club",
         "association": "NAR|TRA",
         "waiver": 300000,
@@ -140,7 +135,7 @@ export default [
         "website": "https://www.uroc.org/content.aspx?page_id=22&club_id=591702&module_id=647065"
     },
     {
-        "launch_site": "Del Notre",
+        "name": "Del Notre",
         "club": "Tripoli Central California",
         "association": "TRA",
         "waiver": 16800,

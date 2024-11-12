@@ -22,13 +22,12 @@
     let { form }: { form: ActionData } = $props();
     const table = new TableHandler(
         get_distance(data, form?.lat ?? null, form?.lon ?? null),
-        { rowsPerPage: 10 },
+        { rowsPerPage: 8 },
     );
 
     let mapRef: any;
 
     type LaunchSite = {
-        id: number;
         launch_site: string;
         club: string;
         association: string;
@@ -140,7 +139,7 @@
             {/if}
         </div>
     </div>
-    <div class="flex flex-wrap justify-center pb-4">
+    <div class="flex flex-wrap justify-center py-4">
         <div
             class="flex flex-col sm:flex-row justify-center items-start space-x-4 w-full px-8"
         >

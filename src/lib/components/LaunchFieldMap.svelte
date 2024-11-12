@@ -45,7 +45,7 @@
         map = new Map({
             container: mapContainer,
             style: "https://basemaps.cartocdn.com/gl/positron-gl-style/style.json",
-            center: [-79, 40],
+            center: [-94, 40],
             zoom: 3,
         });
 
