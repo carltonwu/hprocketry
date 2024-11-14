@@ -4,6 +4,8 @@
     import { onMount } from "svelte";
     import maplibre from "maplibre-gl";
     import "maplibre-gl/dist/maplibre-gl.css";
+    import type { Coordinate } from "$lib/types/coordinate";
+    import type { LaunchSite } from "$lib/types/launchSite";
 
     const { Popup, Map, Marker, NavigationControl } = maplibre;
 
@@ -18,7 +20,7 @@
         markers.forEach((marker) => marker.remove());
         markers = [];
 
-        props.table.allRows.forEach((row: any) => {
+        props.table.allRows.forEach((row: LaunchSite) => {
             const popupContainer = document.createElement("div");
 
             const popup_dom = mount(LaunchFieldPopup, {
@@ -33,7 +35,7 @@
             }).setDOMContent(popupContainer);
 
             const marker = new Marker()
-                .setLngLat([row.lon, row.lat])
+                .setLngLat([row.location.longitude, row.location.latitude])
                 .setPopup(popup)
                 .addTo(map);
 
@@ -58,16 +60,19 @@
         };
     });
 
-    export function centerMap(lat: number, lon: number, zoom: number) {
+    export function centerMap(coord: Coordinate, zoom: number) {
         const options: maplibre.FlyToOptions = {
-            center: [lon, lat],
+            center: [coord.longitude, coord.latitude],
             speed: 2,
             zoom: zoom,
         };
 
         markers.forEach((marker) => {
             const markerLngLat = marker.getLngLat();
-            if (markerLngLat.lat === lat && markerLngLat.lng === lon) {
+            if (
+                markerLngLat.lat === coord.latitude &&
+                markerLngLat.lng === coord.longitude
+            ) {
                 markers.forEach((marker) => {
                     if (marker.getPopup().isOpen()) {
                         marker.togglePopup();

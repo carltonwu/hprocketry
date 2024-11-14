@@ -17,10 +17,7 @@ export async function getGeocodio(query: string) {
 
         const data = await response.json();
 
-        console.log(data);
-
-
-        return { success: true, query: query, lat: data.lat, lon: data.lng };
+        return { success: true, query: query, coord: { latitude: data.lat, longitude: data.lng } };
     } catch (error) {
         console.error("Error fetching data:", error);
         return { success: false, query: query }

@@ -1,14 +1,15 @@
 <script lang="ts">
     import { enhance } from "$app/forms";
     import { TableHandler } from "@vincjo/datatables";
-    import data from "$lib/static/data";
     import type { ActionData } from "./$types";
     import { Locate } from "lucide-svelte";
     import { browser } from "$app/environment";
     import LaunchFieldTable from "$lib/components/LaunchFieldTable.svelte";
     import LaunchFieldMap from "$lib/components/LaunchFieldMap.svelte";
-
     import { getModalStore, type ModalSettings } from "@skeletonlabs/skeleton";
+    import type { PageData } from "./$types";
+    import type { LaunchSite } from "$lib/types/launchSite.d.ts";
+    import type { Coordinate } from "$lib/types/coordinate.d.ts";
 
     const modalStore = getModalStore();
 
@@ -19,61 +20,45 @@
     };
     modalStore.trigger(modal);
 
-    let { form }: { form: ActionData } = $props();
-    const table = new TableHandler(
-        get_distance(data, form?.lat ?? null, form?.lon ?? null),
-        { rowsPerPage: 8 },
-    );
+    let { data, form }: { data: PageData; form: ActionData } = $props();
+    const table = new TableHandler(data.launch_fields, { rowsPerPage: 8 });
+    if (form?.success === true) {
+        updateTable(form.coord);
+    }
 
     let mapRef: any;
 
-    type LaunchSite = {
-        launch_site: string;
-        club: string;
-        association: string;
-        waiver: number;
-        lat: number;
-        lon: number;
-        website: string;
-    };
-
-    function updateUI(lat: number, lon: number) {
-        updateTable(lat, lon);
-        centerMap(lat, lon, 5);
+    function updateUI(coords: Coordinate) {
+        updateTable(coords);
+        centerMap(coords, 5);
     }
 
-    function centerMap(lat: number, lon: number, zoom: number) {
-        mapRef.centerMap(lat, lon, zoom);
+    function centerMap(coords: Coordinate, zoom: number) {
+        mapRef.centerMap(coords, zoom);
     }
 
-    function updateTable(lat: number, lon: number) {
-        table.setRows(get_distance(data, lat, lon));
+    function updateTable(coords: Coordinate) {
+        table.setRows(get_distance(data.launch_fields, coords));
     }
 
     function get_distance(
         data: LaunchSite[],
-        lat: number,
-        lon: number,
-    ): (LaunchSite & { distance: any })[] {
-        const toRadians = (degrees: number) => degrees * (Math.PI / 180);
+        coords: Coordinate,
+    ): LaunchSite[] {
+        const toRadians = (degrees: number): number =>
+            degrees * (Math.PI / 180);
 
-        if (lat == null || lon == null) {
-            return data.map((site) => {
-                const distance = null;
-                return {
-                    ...site,
-                    distance,
-                };
-            });
+        if (coords === null) {
+            return data;
         }
 
         return data.map((site) => {
             const earthRadius = 3959; // Radius of the Earth in miles
-            const dLat = toRadians(site.lat - lat);
-            const dLon = toRadians(site.lon - lon);
+            const dLat = toRadians(site.location.latitude - coords.latitude);
+            const dLon = toRadians(site.location.longitude - coords.longitude);
 
-            const lat1 = toRadians(lat);
-            const lat2 = toRadians(site.lat);
+            const lat1 = toRadians(coords.latitude);
+            const lat2 = toRadians(site.location.latitude);
 
             const a =
                 Math.sin(dLat / 2) ** 2 +
@@ -89,9 +74,9 @@
         });
     }
 
-    function geolocationSuccess(pos) {
+    function geolocationSuccess(pos: GeolocationPosition) {
         const coords = pos.coords;
-        updateUI(coords.latitude, coords.longitude);
+        updateUI({ latitude: coords.latitude, longitude: coords.longitude });
     }
 </script>
 
@@ -108,7 +93,7 @@
                     return async ({ result, update }) => {
                         if (result.type === "success") {
                             const data = result.data;
-                            updateUI(data.lat, data.lon);
+                            if (data) updateUI(data.coord);
                         }
                         update();
                     };

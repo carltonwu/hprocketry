@@ -1,7 +1,7 @@
 <script lang="ts">
-    import type { Table } from "@skeletonlabs/skeleton";
+    import type { LaunchSite } from "$lib/types/launchSite";
 
-    export let launch_site: any;
+    export let launch_site: LaunchSite;
 </script>
 
 <div class="bg-surface-100 dark:bg-surface-700 p-3 min-w-48">

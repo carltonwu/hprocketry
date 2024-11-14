@@ -41,16 +41,16 @@
             </div>
         </div>
     </td>
-    <td class="text-xs md:text-base text-end flex items-center h-full">
-        <p>
+    <td>
+        <p class="text-xs md:text-base text-end">
             {Intl.NumberFormat().format(props.row.waiver)} ft
         </p>
     </td>
     <td>
-        <p class="text-xs md:text-base text-end">
-            {#if props.row.distance != null}
+        {#if props.row.distance != null}
+            <p class="text-xs md:text-base text-end">
                 {Intl.NumberFormat().format(props.row.distance)} mi
-            {/if}
-        </p>
+            </p>
+        {/if}
     </td>
 </tr>
