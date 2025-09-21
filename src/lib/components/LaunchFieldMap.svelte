@@ -69,9 +69,10 @@
 
         markers.forEach((marker) => {
             const markerLngLat = marker.getLngLat();
+
             if (
-                markerLngLat.lat === coord.latitude &&
-                markerLngLat.lng === coord.longitude
+                markerLngLat.lat == coord.latitude &&
+                markerLngLat.lng == coord.longitude
             ) {
                 markers.forEach((marker) => {
                     if (marker.getPopup().isOpen()) {
@@ -86,8 +87,11 @@
     }
 </script>
 
-<div class="map-wrap">
-    <div class="map rounded-md" bind:this={mapContainer}></div>
+<div class="relative w-full h-full">
+    <div
+        class="rounded-lg absolute w-full h-full inset-0"
+        bind:this={mapContainer}
+    ></div>
 </div>
 
 <style>

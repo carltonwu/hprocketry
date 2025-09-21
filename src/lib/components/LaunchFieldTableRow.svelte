@@ -16,7 +16,7 @@
     }
 </script>
 
-<tr onclick={() => props.centerMap(props.row.lat, props.row.lon, 7)}>
+<tr onclick={() => props.centerMap(props.row.location, 7)}>
     <td>
         <div class="grid auto-rows-max gap-1">
             <div>

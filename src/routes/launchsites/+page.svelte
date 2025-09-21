@@ -124,14 +124,14 @@
             {/if}
         </div>
     </div>
-    <div class="flex flex-wrap justify-center py-4">
+    <div class="flex flex-wrap justify-center space-4 w-full h-[50em]">
         <div
-            class="flex flex-col sm:flex-row justify-center items-start space-x-4 w-full px-8"
+            class="flex flex-col sm:flex-row justify-center items-start px-4 lg:px-24 w-full"
         >
-            <div class="w-full sm:w-1/3">
+            <div class="w-full md:w-full h-full">
                 <LaunchFieldTable {table} {centerMap} />
             </div>
-            <div class="w-full sm:w-2/3">
+            <div class="w-full md:w-full h-full">
                 <LaunchFieldMap bind:this={mapRef} {table} />
             </div>
         </div>
